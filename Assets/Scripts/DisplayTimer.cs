@@ -7,7 +7,7 @@ public class DisplayTimer : MonoBehaviour
 {
     public TextMeshProUGUI textTimer;
 
-    private float timer = 0.0f;
+    private float timer = 21595.0f;
     private bool isTimer = true;
 
     // Update is called once per frame
@@ -22,9 +22,11 @@ public class DisplayTimer : MonoBehaviour
 
     void DisplayTime()
     {
-        int minutes = Mathf.FloorToInt(timer / 60.0f);
-        int seconds = Mathf.FloorToInt(timer - minutes * 60);
-        textTimer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        
+        int minutes = Mathf.FloorToInt(((timer / 60.0f)% 60.0f));
+        //int seconds = Mathf.FloorToInt(timer - minutes * 60);
+        int hours = Mathf.FloorToInt(((timer / 60.0f) / 60.0f));
+        textTimer.text = string.Format("{0:00}:{1:00}", hours, minutes);
     }
 
     public void StartTimer()
