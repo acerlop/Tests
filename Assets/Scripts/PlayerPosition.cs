@@ -7,7 +7,8 @@ public class PlayerPosition : MonoBehaviour
     public GameObject Player;
     public Transform positionRoom;
     public Transform positionKitchen;
-    
+    public Transform positionStreet;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,5 +29,10 @@ public class PlayerPosition : MonoBehaviour
     public void Kitchen()
     {
         Player.transform.position = positionKitchen.position;
+    }
+
+    public void Street()
+    {
+        Player.transform.position = positionStreet.position;
     }
 }
